@@ -1,4 +1,20 @@
-base.html
-book_list.html
-book_detail.html
-my_loans.html
+<!DOCTYPE html>
+<html>
+<head>
+<title>Biblioteca</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+<nav>
+<a href="/">Catálogo</a>
+<a href="/loans/my-loans/">Mis préstamos</a>
+</nav>
+
+{% block content %}
+
+{% endblock %}
+
+</body>
+</html>

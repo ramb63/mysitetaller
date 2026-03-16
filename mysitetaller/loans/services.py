@@ -17,6 +17,7 @@ def create_loan(book, user, due_date):
 
     book.is_available = False
     book.save()
+    return loan
 def return_book(loan):
 
     loan.end_date = date.today()
@@ -30,10 +31,11 @@ def return_book(loan):
     late_days = (loan.end_date - loan.due_date).days
 
     if late_days > 0:
-
         Fine.objects.create(
             loan=loan,
             late_days=late_days,
             fine_amount=late_days * 1000
-        )
+        )   
+    
+
     return loan

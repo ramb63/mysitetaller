@@ -1,6 +1,7 @@
 from django import forms
 from .models import Book
 
+
 class BookForm(forms.ModelForm):
 
     class Meta:
@@ -15,6 +16,6 @@ class BookForm(forms.ModelForm):
             raise forms.ValidationError("ISBN must contain only numbers")
 
         if len(isbn) not in [10, 13]:
-            raise forms.ValidationError("Invalid ISBN length")
+            raise forms.ValidationError("Invalid ISBN")
 
         return isbn

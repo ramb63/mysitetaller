@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .models import Book
 from django.core.paginator import Paginator
+from django.db.models import Q
+
 
 def book_list(request):
 
@@ -10,9 +12,8 @@ def book_list(request):
 
     if query:
         books = books.filter(
-            title__icontains=query
-        ) | books.filter(
-            author__name__icontains=query
+            Q(title__icontains=query) |
+            Q(author__name__icontains=query)
         )
 
     paginator = Paginator(books, 10)
